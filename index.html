@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="block">
+        <h1>
+            Get random joke right now!
+        </h1>
+        <button class="btn">OK!</button>
+        <div class="q"></div>
+        <div class="pl"></div>
+    </div>
+    
+
+
+
+<script>
+const api = 'https://official-joke-api.appspot.com/jokes/random'
+
+let question = document.querySelector('.q');
+let punchline = document.querySelector('.pl');
+let btn = document.querySelector(".btn");
+
+async function getJoke() {
+    const responce = await fetch(api);
+    let data = await responce.json();
+        console.log(data);
+    
+    question.innerHTML = "setup: " + data.setup;
+    punchline.innerHTML = "punchline: " + data.punchline;
+
+
+
+}
+btn.addEventListener('click', ()=>{
+    getJoke()
+})  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>    
+</body>
+</html>
